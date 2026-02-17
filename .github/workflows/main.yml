@@ -1,0 +1,25 @@
+name: IITM Security and Cache Check
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 23f2003863@ds.study.iitm.ac.in
+        run: echo "Finalizing for Sachin Jha"
+
+      - name: Cache dependencies
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-f0b8518
+
+      - name: prime-cache-f0b8518
+        run: echo "Cache status is ${{ steps.cache-step.outputs.cache-hit }}"
